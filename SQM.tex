@@ -1,0 +1,97 @@
+\documentclass[
+	fontsize=12pt,           % Leitlinien sprechen von Schriftgröße 12.
+	paper=A4,
+	twoside=false,
+	listof=totoc,            % Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
+	bibliography=totoc,      % Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
+	titlepage,               % Titlepage-Umgebung anstatt \maketitle
+	headsepline,             % horizontale Linie unter Kolumnentitel
+	abstract,              % Überschrift einschalten, Abstract muss in {abstract}-Umgebung stehen
+]{scrreprt}                  % Verwendung von KOMA-Report
+
+% ------------------------------------------------------------
+% LaTeX Template für die DHBW zum Schnellstart!
+% Original: https://github.wdf.sap.corp/vtgermany/LaTeX-Template-DHBW
+% ------------------------------------------------------------
+% ---- Präambel mit Angaben zum Dokument
+\input{Inhalt/00_Latex/praeambel}
+
+% ---- Persönlichen Daten:
+\newcommand{\titel}{Software-Qualität}
+\newcommand{\titelheader}{SQM}
+\newcommand{\arbeit}{Hausarbeit}
+\newcommand{\studiengang}{Informatik}
+\newcommand{\studienjahr}{2023}
+\newcommand{\autor}{Philipp Reichert}
+\newcommand{\verfassungsort}{Karlsruhe}
+\newcommand{\matrikelnr}{1758822}
+\newcommand{\kurs}{TINF20B2}
+\newcommand{\betreuerDhbw}{Dennis Kube \& Jonathan Schwarzenböck}
+
+\input{Inhalt/00_Latex/kopfundFusszeile}
+
+% ---- Beginn des Dokuments
+\begin{document}
+\setlength{\parindent}{0pt}              % Keine Paragraphen Einrückung.
+                                         % Dafür haben wir den Abstand zwischen den Paragraphen.
+\setcounter{secnumdepth}{2}              % Nummerierungstiefe fürs Inhaltsverzeichnis
+\setcounter{tocdepth}{1}               
+
+% ---- Vorspann
+% ------ Titelseite
+\singlespacing
+\include{Inhalt/01_Standard/titelseite}  % Titelseite
+\newcounter{savepage}
+\pagenumbering{Roman}                    % Römische Seitenzahlen
+\onehalfspacing
+
+% ------ Erklärung, Sperrvermerk, Abstact
+%\include{Inhalt/01_Standard/sperrvermerk}
+%\include{Inhalt/01_Standard/erklaerung}
+%\include{Inhalt/02_Abstract/abstract-en}
+%\include{Inhalt/02_Abstract/abstract-de}
+
+% ------ Inhaltsverzeichnis
+\singlespacing
+\tableofcontents
+
+% ------ Verzeichnisse
+\renewcommand*{\chapterpagestyle}{plain}
+\pagestyle{plain}
+%\include{Inhalt/03_Verzeichnisse/abkuerzungen}
+\listoffigures                          % Erzeugen des Abbildungsverzeichnisses 
+%\listoftables                           % Erzeugen des Tabellenverzeichnisses
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+% \lstlistoflistings                      % Erzeugen des Listenverzeichnisses
+\setcounter{savepage}{\value{page}}
+
+
+% ---- Inhalt der Arbeit
+\cleardoublepage
+\pagenumbering{arabic}                  % Arabische Seitenzahlen für den Hauptteil
+\setlength{\parskip}{0.5\baselineskip}  % Abstand zwischen Absätzen
+\rmfamily
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\pagestyle{scrheadings}
+\onehalfspacing
+
+\include{Inhalt/04_Inhalt/Einführung}
+\include{Inhalt/04_Inhalt/Hauptteil}
+
+
+% ---- Literaturverzeichnis
+\cleardoublepage
+\renewcommand*{\chapterpagestyle}{plain}
+\pagestyle{plain}
+\pagenumbering{Roman}                   % Römische Seitenzahlen
+\setcounter{page}{\numexpr\value{savepage}+1}
+\printbibliography[title=Literaturverzeichnis]
+
+% ---- Anhang
+\appendix
+%\include{Inhalt/04_Inhalt/Anhang}
+%\clearpage
+%\pagenumbering{Roman}  % römische Seitenzahlen für Anhang
+
+\newpage
+\end{document}
