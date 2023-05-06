@@ -1,3 +1,52 @@
 \chapter{Hauptteil}
 
+\section{Warum ist des wichtig?}
 
+Standardisierte Kommunikation mit Daten ist ein wichtiger Faktor beim Zusammenspiel mehrerer unabhängiger Institutionen. Sie garantiert ein reibungslosen Ablauf von Prozessen.
+Da sich Prozesse mit der Zeit weiterentwickeln, müssen sich auch Kommunikationsstandards von Zeit zu Zeit anpassen. 
+
+Die Unterstützung aktueller Standards ist eine Primitive Funktionale Anforderung, da daran die aktuelle und zukünftige reibungslose Kommunikation mit anderen Institutionen hängt.
+Um zu signalisieren dass die Richtlinien unterstützt werden soll das zugehörige Zertifikat erworben werden. Das vereinfacht zudem das Qualitätsmanagement durch die Einhaltung einheitlicher Vorgaben und sorgt für Transparenz bei Kunden und beim Erfolg des Projektes.
+Dieses Qualitätsmerkmal kann allerdings nur beim Abschluss des Projekts erworben werden und sagt nichts über den eigentlichen Verlauf des Projekts aus. Deshalb werden weitere SQM Maßnahmen benötigt.
+
+\section{Ressourcen zur Verfügung}
+
+Das Team besteht aus 2 Senior Entwicklern, einem Junior Entwickler und einem Dualen Student. Neben der Implementierung des neuen Standards kümmern sie sich um die Wartung der bestehenden Lohndatenabrechnung.
+ Unterstützt wird das Entwicklungsteam von 2 Personen, welche für Domänenspezifische Fragen zur Lohndatenabrechnung, rechtlichen Begebenheiten in der Schweiz und Rückfragen an Swissdec verantwortlich sind. Der Aufgabenbereich Umfasst Manuelle Ende-zu-Ende Tests auf Verhandelte Edge-Cases.
+
+\section{Aktuelles vorgehen und SQM}
+
+Die Codebasis ist verteilt auf eine Vielzahl von Systemen, welche unterschiedliche Entwicklungsstände und Testdaten haben. Es gibt 4 Entwicklungssysteme, welche jeweils auf verschiedenen unterstützen ABAP Versionen laufen und daher in der Implementierung in Details variieren. Ein Transport von Versionsänderungen zwischen Systemen ist möglich, benötigt jedoch möglicherweise manuelle Codeanpassungen.
+Für jedes Entwicklungssystem existiert mindestens eine Testsystem. Es können auch mehrere Testsysteme mit verschiedenen Systemeinstellungen existieren. Die Menge an Testsystemen hängt dabei maßgeblich davon ab, wie viele Kunden mit unterschiedlichen Systemeinstellungen die entsprechende ABAP Version verwenden.
+Der Hintergrund für diese Vielfalt ist die Politik von SAP, alte Versionen weit über deren Technologisches Haltbarkeitsdatum hinaus zu unterstützen. 
+Diese verteilte Entwicklung und Testung beeinträchtigt die Effizienz der Entwickler, das sie ähnliche Algorithmen mitunter mehrfach entwickeln müssen und die Selben Tests mehrfach an verschiedenen Stellen ausgeführt werden müssen.
+
+Es wird eine neue Softwareversion je Quartal ausgeliefert. Dazwischen können lediglich schnelle Fixes ausgeliefert werden. Kunden ist es selbst überlassen, ob sie diese einspielen wollen oder bis zum nächsten vierteljährlichen Release damit warten wollen.
+Dies entsteht aus der policy von SAP, die Auslieferung von Software nicht zentral zu managen sondern dies den einzelnen Kunden auf ihren On-Premise Systemen selbst zu überlassen.
+Dies führt dazu, dass Kunden auf verschiedensten Versionen operieren, welche im Fall von Fehlern auf Produktivsystemen oder Feature Requests aufwendig nachgestellt werden müssen, was viel Zeit frisst und oft zu zusätzlichen Problemen und schwerer nachmachbarkeit führt. 
+
+Es gibt von Swissdec definierte Testfälle, die für die Zertifizierung korrekt ausgeführt werden müssen. Diese werden nach der Implementierung der zugehörigen Features in die jeweiligen Testsysteme eingebunden und umgesetzt. Das korrekte Erzeugen der Lohnabrechnung der Testfälle über den vorgesehenen (manuellen) Prozess gilt dabei als bestandener Test.
+Dies kommt daher, dass die Tests für die Zertifizierung des ELM Standards sehr generell gehalten sind, da lediglich die korrekte Form der Daten, nicht aber deren effiziente Erstellung im Standard inbegriffen sind.
+Dies führt dazu, dass nicht übersichtlich ist, welche Tests auf welchem Stand gerade ausgeführt worden sind. Zusätzlich werden Seiteneffekte häufig erst später bemerkt, da keine automatisierten Tests bestehen und demnach nicht bei allen Änderungen der Aufwand getrieben wird alle (mitunter nichtmal implementierten) Tests auszuführen. 
+
+Die Verteilung der Aufgaben erfolgt dabei über ein lebendes Dokument (welches von den Senior Developern gepflegt wird), indem erkannte Differenzen zum neuen Standard aufgelistet sind. Die Senior Developer teilen in einem täglichen Meeting Aufgaben zu und tauschen sich über den Stand der einzelnen Aufgaben aus.
+Dies liegt an der hohen Erfahrungsdifferenz (20 Jahre gegenüber extra für die ELM zertifizierung ins Team geholt) und damit einhergehenden Hierarchie in der Abteilung.
+Dies ist problematisch, da in Kombination mit langen Releaseabständen nur selten eine Rückmeldung über die aktuelle Entwicklungsgeschwindigkeit erhalten wird. Zusätzlich ist die Einschätzung über die Restzeit des Projektes nicht sehr zuverlässig, da sehr wahrscheinlich ist, dass neue Abweichungen des neuen Standards gefunden werden, was den 'Backlog' an aufgaben erhöht.
+
+Wenn eine Codeänderung vorgenommen wird, wird dies in einem Featurenode in einem entsprechenden System getrackt. Dabei wird ein Featurenode mit einer geöffnet und die geplanten Änderungen beschrieben. Innerhalb der geänderten Dateien wird am Dateianfang eine Referenz auf die Featurenode mit dem Bearbeiter hinterlegt, damit in Zukunft Nachfragen zu der Implementierungen direkt an den Dateiersteller gerichtet werden können und die Begründung in der Featurenode nachgesehen werden kann.
+Die Umsetzung über Featurenode liegt an der Erzeugung der Releasenodes aus den Featurenode. Dieses Konzept besteht seit den frühen Anfängen des ERP Systems, und damit länger als externe Projektmanagement Tools in anderen Teilen der Firma eingesetzt wurden. Ähnliches gilt für die Zuständigkeitsverwalltung über Annotationen in Dateianfängen, welche so lange bestehen dass sie teilweise in Deutsch oder Italienisch geschrieben wurden, obwohl die Implementierungssprache seit Jahrzehnten einheitlich auf Englisch ist.
+Dies ist problematisch, da dieses Vorgehen bei häufig editierten Dateien zu einem unübersichtlichen Overhead am Dateianfang führt und die Verantwortlichen Mitarbeiternummern teilweise seit Jahrzehnten die Firma verlassen haben.
+
+Der Kern aller Probleme liegt zudem in der Team Zusammenstellung. Aufgrund der Dynamik der Senior Entwicklern, welche lange Zeit als Zweierteam gearbeitet haben, besteht eine Abneigung gegenüber Projektmanagementtätigkeiten, da diese in der Vergangenheit nicht nötig waren. Zudem besteht keine klare Verantwortlichkeit, da die nominelle Projektleitung (Junior Entwickler) sich nicht an der tatsächlichen Autorität (welche bei den Senior Entwicklern liegt) deckt. Dies führt dazu, dass sich niemand verantwortlich fühlt, Änderungen in die Hand zu nehmen.
+
+\section{Grundlagentheorie für Optimierung}
+
+\subsection{Das Scheiss fucking magische Dreieck}
+
+\subsection{Tests}
+
+\subsection{Wasserfall Modell oder sowas}
+
+\section{Optimierungen und Marktspezifische Bewertung}
+
+\chapter{Zusammenfassung}
