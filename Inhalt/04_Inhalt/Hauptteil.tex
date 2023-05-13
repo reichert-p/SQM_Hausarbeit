@@ -1,52 +1,142 @@
 \chapter{Hauptteil}
 
-\section{Warum ist des wichtig?}
+\section{Priorität des Projekts}
 
-Standardisierte Kommunikation mit Daten ist ein wichtiger Faktor beim Zusammenspiel mehrerer unabhängiger Institutionen. Sie garantiert ein reibungslosen Ablauf von Prozessen.
-Da sich Prozesse mit der Zeit weiterentwickeln, müssen sich auch Kommunikationsstandards von Zeit zu Zeit anpassen. 
 
-Die Unterstützung aktueller Standards ist eine Primitive Funktionale Anforderung, da daran die aktuelle und zukünftige reibungslose Kommunikation mit anderen Institutionen hängt.
-Um zu signalisieren dass die Richtlinien unterstützt werden soll das zugehörige Zertifikat erworben werden. Das vereinfacht zudem das Qualitätsmanagement durch die Einhaltung einheitlicher Vorgaben und sorgt für Transparenz bei Kunden und beim Erfolg des Projektes.
-Dieses Qualitätsmerkmal kann allerdings nur beim Abschluss des Projekts erworben werden und sagt nichts über den eigentlichen Verlauf des Projekts aus. Deshalb werden weitere SQM Maßnahmen benötigt.
+Die standardisierte Datenkommunikation spielt eine wichtige Rolle bei der Zusammenarbeit mehrerer getrennt verwalteter Institutionen und gewährleistet einen reibungslosen Ablauf von Prozessen. Da sich Prozesse im Laufe der Zeit weiterentwickeln, müssen auch die Kommunikationsstandards gelegentlich angepasst werden.
 
-\section{Ressourcen zur Verfügung}
+Die Unterstützung der neuesten Standards ist eine grundlegende funktionale Anforderung für ERP-Software, da sie die aktuelle und zukünftige reibungslose Kommunikation mit anderen Institutionen gewährleistet.
+Die Umsetzung dieser Anforderung ist von großer Bedeutung für das Gesamtprodukt.
 
-Das Team besteht aus 2 Senior Entwicklern, einem Junior Entwickler und einem Dualen Student. Neben der Implementierung des neuen Standards kümmern sie sich um die Wartung der bestehenden Lohndatenabrechnung.
- Unterstützt wird das Entwicklungsteam von 2 Personen, welche für Domänenspezifische Fragen zur Lohndatenabrechnung, rechtlichen Begebenheiten in der Schweiz und Rückfragen an Swissdec verantwortlich sind. Der Aufgabenbereich Umfasst Manuelle Ende-zu-Ende Tests auf Verhandelte Edge-Cases.
+Um zu zeigen, dass die Richtlinien unterstützt werden, soll das entsprechende Zertifikat von Swissdec erworben werden. Dadurch wird das Qualitätsmanagement vereinfacht, da einheitliche Vorgaben eingehalten werden, es sorgt für Transparenz bei Kunden und bietet eine objektive Überprüfung des Erfolges des Projekts
 
-\section{Aktuelles vorgehen und SQM}
+Es ist jedoch wichtig zu beachten, dass dieses Qualitätsmerkmal erst bei Abschluss des Projekts erworben werden kann und nichts über den tatsächlichen Verlauf des Projekts aussagt. Daher sind weitere Maßnahmen im Softwarequalitätsmanagement erforderlich.
 
-Die Codebasis ist verteilt auf eine Vielzahl von Systemen, welche unterschiedliche Entwicklungsstände und Testdaten haben. Es gibt 4 Entwicklungssysteme, welche jeweils auf verschiedenen unterstützen ABAP Versionen laufen und daher in der Implementierung in Details variieren. Ein Transport von Versionsänderungen zwischen Systemen ist möglich, benötigt jedoch möglicherweise manuelle Codeanpassungen.
-Für jedes Entwicklungssystem existiert mindestens eine Testsystem. Es können auch mehrere Testsysteme mit verschiedenen Systemeinstellungen existieren. Die Menge an Testsystemen hängt dabei maßgeblich davon ab, wie viele Kunden mit unterschiedlichen Systemeinstellungen die entsprechende ABAP Version verwenden.
-Der Hintergrund für diese Vielfalt ist die Politik von SAP, alte Versionen weit über deren Technologisches Haltbarkeitsdatum hinaus zu unterstützen. 
-Diese verteilte Entwicklung und Testung beeinträchtigt die Effizienz der Entwickler, das sie ähnliche Algorithmen mitunter mehrfach entwickeln müssen und die Selben Tests mehrfach an verschiedenen Stellen ausgeführt werden müssen.
+\subsection{Ressourcen}
 
-Es wird eine neue Softwareversion je Quartal ausgeliefert. Dazwischen können lediglich schnelle Fixes ausgeliefert werden. Kunden ist es selbst überlassen, ob sie diese einspielen wollen oder bis zum nächsten vierteljährlichen Release damit warten wollen.
+Das Projektteam besteht aus zwei erfahrenen Entwicklern, die bereits seit über 10 Jahren an der Software arbeiten, einem Junior-Entwickler und einem dualen Studenten.  Ihre Aufgaben umfassen sowohl die Implementierung des neuen Standards als auch die Wartung der bestehenden Lohndatenabrechnung.
+
+Das Entwicklungsteam wird von zwei Personen unterstützt, die sich mit Fragen zur Lohndatenabrechnung, den rechtlichen Bestimmungen in der Schweiz und Rückfragen an Swissdec befassen. Ihr Verantwortungsbereich umfasst auch manuelle Ende-zu-Ende-Tests für durch Rückfragen abgeklärte Randfälle.
+
+\section{Aktuelles Vorgehen, dessen Hintergründe und Auswirkungen}
+
+\subsection{Systemarchitektur}
+
+Die Codebasis erstreckt sich über eine Vielzahl von Systemen, die unabhängige Entwicklungsstände und Testdaten aufweisen. 
+Es gibt vier Entwicklungssysteme, auf denen der neue Lohnmeldestandard implementiert werden soll. Diese unterscheiden sich in den Implementierungsdetails, da sie jeweils verschiedene ABAP-Versionen verwenden.
+
+Der Transport von Versionsänderungen zwischen den Systemen ist teilweise automatisch möglich, kann jedoch bis zu 40 Minuten dauern und erfordert möglicherweise manuelle Codeanpassungen.
+
+Für jedes Entwicklungssystem gibt es mindestens ein Testsystem. Es können auch mehrere Testsysteme mit unterschiedlichen Systemeinstellungen und Testdaten vorhanden sein. Die Anzahl der Testsysteme hängt davon ab, wie viele Kunden die entsprechende ABAP-Version mit verschiedenen Systemeinstellungen nutzen.
+
+Diese Vielfalt an Systemen ergibt sich aus der SAP-Politik, alte Versionen weit über ihr technologisches Haltbarkeitsdatum hinaus zu unterstützen.
+
+Diese verteilte Entwicklung und Testung beeinträchtigt die Effizienz der Entwickler, da sie ähnliche Algorithmen mitunter mehrfach entwickeln müssen und die Selben Tests mehrfach an verschiedenen Stellen ausgeführt werden müssen.
+Zudem nimmt der Transport in die verschiedenen Systeme Zeit in Anspruch. Darüber hinaus kann es lange dauern, Feedback zu Fehlern zu erhalten, wenn die zugehörigen Tests in anderen Systemen liegen.
+
+\subsection{Auslieferung}
+
+Es wird ein Software Update je Quartal ausgeliefert. Dazwischen können schnelle Fixes ausgeliefert werden. Kunden ist es selbst überlassen, ob sie diese einspielen wollen oder bis zum nächsten vierteljährlichen Release damit warten wollen.
+
 Dies entsteht aus der policy von SAP, die Auslieferung von Software nicht zentral zu managen sondern dies den einzelnen Kunden auf ihren On-Premise Systemen selbst zu überlassen.
+
 Dies führt dazu, dass Kunden auf verschiedensten Versionen operieren, welche im Fall von Fehlern auf Produktivsystemen oder Feature Requests aufwendig nachgestellt werden müssen, was viel Zeit frisst und oft zu zusätzlichen Problemen und schwerer nachmachbarkeit führt. 
 
+\subsection{Software Tests}
+
 Es gibt von Swissdec definierte Testfälle, die für die Zertifizierung korrekt ausgeführt werden müssen. Diese werden nach der Implementierung der zugehörigen Features in die jeweiligen Testsysteme eingebunden und umgesetzt. Das korrekte Erzeugen der Lohnabrechnung der Testfälle über den vorgesehenen (manuellen) Prozess gilt dabei als bestandener Test.
+
 Dies kommt daher, dass die Tests für die Zertifizierung des ELM Standards sehr generell gehalten sind, da lediglich die korrekte Form der Daten, nicht aber deren effiziente Erstellung im Standard inbegriffen sind.
+
 Dies führt dazu, dass nicht übersichtlich ist, welche Tests auf welchem Stand gerade ausgeführt worden sind. Zusätzlich werden Seiteneffekte häufig erst später bemerkt, da keine automatisierten Tests bestehen und demnach nicht bei allen Änderungen der Aufwand getrieben wird alle (mitunter nichtmal implementierten) Tests auszuführen. 
 
+\subsection{Projektmanagement}
+
 Die Verteilung der Aufgaben erfolgt dabei über ein lebendes Dokument (welches von den Senior Developern gepflegt wird), indem erkannte Differenzen zum neuen Standard aufgelistet sind. Die Senior Developer teilen in einem täglichen Meeting Aufgaben zu und tauschen sich über den Stand der einzelnen Aufgaben aus.
+
 Dies liegt an der hohen Erfahrungsdifferenz (20 Jahre gegenüber extra für die ELM zertifizierung ins Team geholt) und damit einhergehenden Hierarchie in der Abteilung.
+
 Dies ist problematisch, da in Kombination mit langen Releaseabständen nur selten eine Rückmeldung über die aktuelle Entwicklungsgeschwindigkeit erhalten wird. Zusätzlich ist die Einschätzung über die Restzeit des Projektes nicht sehr zuverlässig, da sehr wahrscheinlich ist, dass neue Abweichungen des neuen Standards gefunden werden, was den 'Backlog' an aufgaben erhöht.
 
+\subsection{Dokumentation und Versionskontrolle}
+
 Wenn eine Codeänderung vorgenommen wird, wird dies in einem Featurenode in einem entsprechenden System getrackt. Dabei wird ein Featurenode mit einer geöffnet und die geplanten Änderungen beschrieben. Innerhalb der geänderten Dateien wird am Dateianfang eine Referenz auf die Featurenode mit dem Bearbeiter hinterlegt, damit in Zukunft Nachfragen zu der Implementierungen direkt an den Dateiersteller gerichtet werden können und die Begründung in der Featurenode nachgesehen werden kann.
+
 Die Umsetzung über Featurenode liegt an der Erzeugung der Releasenodes aus den Featurenode. Dieses Konzept besteht seit den frühen Anfängen des ERP Systems, und damit länger als externe Projektmanagement Tools in anderen Teilen der Firma eingesetzt wurden. Ähnliches gilt für die Zuständigkeitsverwalltung über Annotationen in Dateianfängen, welche so lange bestehen dass sie teilweise in Deutsch oder Italienisch geschrieben wurden, obwohl die Implementierungssprache seit Jahrzehnten einheitlich auf Englisch ist.
+
 Dies ist problematisch, da dieses Vorgehen bei häufig editierten Dateien zu einem unübersichtlichen Overhead am Dateianfang führt und die Verantwortlichen Mitarbeiternummern teilweise seit Jahrzehnten die Firma verlassen haben.
+
+\subsection{Zusammenfassung der Probleme}
 
 Der Kern aller Probleme liegt zudem in der Team Zusammenstellung. Aufgrund der Dynamik der Senior Entwicklern, welche lange Zeit als Zweierteam gearbeitet haben, besteht eine Abneigung gegenüber Projektmanagementtätigkeiten, da diese in der Vergangenheit nicht nötig waren. Zudem besteht keine klare Verantwortlichkeit, da die nominelle Projektleitung (Junior Entwickler) sich nicht an der tatsächlichen Autorität (welche bei den Senior Entwicklern liegt) deckt. Dies führt dazu, dass sich niemand verantwortlich fühlt, Änderungen in die Hand zu nehmen.
 
+
+
 \section{Grundlagentheorie für Optimierung}
 
-\subsection{Das Scheiss fucking magische Dreieck}
+Um Optimierungen des für das Softwarequalitätsmanagement des Projekts der Vorlesung vorzuschlagen ist es wichtig, sich vorher mit den in der Vorlesung erlernten Grundlagen auseinanderzusetzen.
 
-\subsection{Tests}
+\subsection{Das magische Dreieck}
 
-\subsection{Wasserfall Modell oder sowas}
+Das Magische Dreieck des Projektmanagements bezieht sich auf die drei zentralen Faktoren, die bei der Planung und Umsetzung eines Projekts berücksichtigt werden müssen: Zeit, Kosten und Leistung.
+
+Zeit bezieht sich auf den Zeitrahmen, innerhalb dessen das Projekt abgeschlossen werden soll. Dies umfasst die Festlegung von Meilensteinen und die Erstellung eines realistischen Zeitplans für die verschiedenen Phasen des Projekts.
+
+Kosten bezieht sich auf das Budget, das für das Projekt zur Verfügung steht. Es ist wichtig, die Kosten sorgfältig zu planen und zu überwachen, um sicherzustellen, dass das Projekt innerhalb des Budgets bleibt und dass keine unvorhergesehenen Kosten entstehen.
+
+Leistung bezieht sich auf die Qualität des Projektergebnisses und darauf, ob es den Anforderungen und Erwartungen entspricht. Die Leistung kann in Bezug auf die Funktionalität, Zuverlässigkeit, Benutzerfreundlichkeit, Effektivität und Effizienz des Ergebnisses bewertet werden.
+
+Diese drei Faktoren des Magischen Dreiecks des Projektmanagements sind miteinander verbunden und beeinflussen sich gegenseitig. Eine Änderung an einem Faktor kann Auswirkungen auf die anderen Faktoren haben, und es ist die Aufgabe des Projektmanagers, ein Gleichgewicht zwischen ihnen zu finden und sicherzustellen, dass das Projekt erfolgreich abgeschlossen wird.
+
+\subsection{Wasserfall Modell und V-Modell}
+
+Das Wasserfallmodell ist eine sequenzielle Projektmanagementmethode, bei der jede Phase des Projekts nacheinander abgeschlossen wird, bevor die nächste Phase beginnt. Dies bedeutet, dass der Fortschritt des Projekts von einer Phase zur nächsten linear ist und es wenig oder keine Möglichkeit gibt, Änderungen an früheren Phasen vorzunehmen, sobald sie abgeschlossen sind. Das Magische Dreieck des Projektmanagements ist daher besonders wichtig im Wasserfallmodell, da Zeit, Kosten und Leistung sorgfältig geplant und überwacht werden müssen, um sicherzustellen, dass das Projekt erfolgreich abgeschlossen wird.
+
+Das V-Modell ist eine Projektmanagementmethode, die auf dem Wasserfallmodell basiert, aber stärker auf Test- und Validierungsphasen fokussiert ist. Die V-Form des Modells verdeutlicht den Prozess, der bei der Erstellung von Produkten stattfindet, indem sie zeigt, wie die Anforderungen abgestimmt werden, wie das System im Entwicklungsprozess modelliert wird und wie Tests das Produkt überprüfen. Das Magische Dreieck des Projektmanagements ist auch im V-Modell von entscheidender Bedeutung, da es hilft sicherzustellen, dass die Anforderungen und Tests auf die Zeit- und Kostenvorgaben des Projekts abgestimmt sind.
+
+In Bezug auf die Frage, wann sich welches Modell eignet, hängt dies von den spezifischen Anforderungen des Projekts ab. Das Wasserfallmodell ist ideal für Projekte, bei denen die Anforderungen klar definiert sind und Änderungen an diesen Anforderungen unwahrscheinlich sind. Das V-Modell eignet sich für Projekte, bei denen die Validierung von Anforderungen und Testphasen besonders wichtig ist. Es ist wichtig, die Vor- und Nachteile jedes Modells zu berücksichtigen und die richtige Methode für das spezifische Projekt auszuwählen.
 
 \section{Optimierungen und Marktspezifische Bewertung}
 
+\subsection{Awareness für Sinnhaftigkeit von Planung schaffen}
+
+Ein wichtiger grundlegender Schritt für den Erfolg aller weiteren Maßnahmen ist die Schaffung von Verständnis, warum ein gutes Projektmanagement, regelmäßige Rückmeldung und gute Abstimmung relevant für die Qualität der Software ist. 
+Insbesondere muss dabei die Wichtigkeit des PDCA-Protokolls (Plan-Do-Check-Act) vermittelt werden, das grundlegend für eine Verbesserung der Prozesse ist.
+
+\subsection{Einführung moderner Versionierungs- und Projektmanagement Tools}
+
+Um PDCA besser umsetzen zu können wäre es empfehlenswert ein Vorgehen für den Projektverlauf zu definieren.
+Aufgrund der Projektbeschaffenheit würde es sich dafür anbieten, sich am Wasserfallmodell zu orientieren. Bei der Softwareentwicklung ist es zwar üblich agile Softwareentwicklung anzuwenden.
+Aufgrund der konkreten Anforderungen die erreicht werden müssen sowie der dafür notwendigen Dokumentation, die ohnehin erstellt werden muss, bietet sich für die Umsetzung der Anforderungen für ein Zertifikat jedoch allgemein die Struktur des Wasserfallmodells mehr.
+
+Ein Vorteil bei dieser Umsetzung sind die bereits von Swissdec gegebenen klaren Anforderungen, die starr sind und sich nicht grundlegend ändern werden. Die entstandene Dokumentation muss für die Abnahme des Zertifikats zu Projektende ohnehin erstellt werden und der Zeitrahmen, bis zu dem das Projekt abgeschlossen werden soll kann gut geplant werden. Dadurch können Abweichungen der vorhandenen Ressourcen bzw. vom Zeitplan entsprechend PDCA frühzeitig erkannt und gegengesteuert werden.
+Ein weiterer Vorteil ist dass die Phasen der Anforderungen und Überprüfung durch die Rahmenbedingungen von Swissdec bereits gegeben sind.
+Da das Projekt auf eine existierende Codebasis aufbaut ist es Sinnvoll, in der Entwurfsphase sich mit der bestehenden Architektur und nötigen Anpassungen dafür auseinanderzusetzen
+
+Eine weitere Empfehlung ist der Umstieg auf neue Technologien, nicht zuletzt um die Planung im Wasserfallmodell sinnvoll umsetzen zu können und die Dokumentation zu unterstützen.
+
+
+\subsection{Testgetriebene Entwicklung mit automatisierten Tests}
+
+Ein weiteres Gebiet für Optimierungen ist die Überarbeitung des Testbetriebs.
+Ein wichtiger Schritt zur Erhöhung der Codequalität wäre die Einführung von Unit Tests, die auf kleinster Ebene lokal und schnell die Funktionalität des Codes garantieren.
+Zusätzlich wäre eine Adaption der Testgetriebenen Entwicklung für die bereits von Swissdec gegebenen Acceptance Tests Sinnvoll. Dieses Vorgehen würde die guten Qualitätsmetriken ausnutzen. Da diese Tests fest gegeben und notwendig für eine erfolgreiche Zertifizierung sind, würden dieses Vorgehen nicht für einen höheren Aufwand oder mehr Testwartung führen.
+Da das Projekt im Kontext eines umfassenden Lohndatensystems stattfindet ist die Umsetzung regelmäßiger Smoke- und Tests sehr sinnvoll, um zu prüfe ob andere Systemkomponente von der Implementierung beeinflusst werden.
+
+Eine weitere Sinnvolle Maßnahme zur Sicherung der Qualität ist die automatisierte der Tests neuen Änderungen. Dies garantiert eine regelmäßige Ausführung aller Tests und damit eine Frühzeitige Erkennung von Problemen.
+
+Dies wäre Sinnvoll umsetzbar im Rahmen einer Continuous Integration. Continuous Delivery in die anderen Entwicklungs- und Testsysteme wäre auch eine Sinnvolle Maßnahme, da dies Zeit spart, die Entwickler für den halbautomatisierten Transport der Änderungen benötigen würden.
+Es wäre Sinnvoll die Pipeline um automatische Tests in den anderen Systemen zu erweitern, damit Entwickler direkt informiert werden wenn Codeänderungen für die anderen Systeme nötig sind.
+Continuous Deployment des Produktivcodes an produktive Systeme von Kunden ist in diesem Zusammenhang nicht Sinnvoll, da hier die Verantworktun auf Seiten der Kunden liegt und eine zu filigrane Aufteilung der Versionierung den laufenden Betrieb stören könnte.
+
+Da die Entwicklung des neuen Lohnmeldestandards auf den Selben Systemen wie die aktuelle Lohnmeldesoftware stattfinde, muss überlegt werden, wie die Auslieferung stattfindet.
+Der Angesetzte Zeitrahmen für den neuen Lohnmeldestandard ist etwa 3 Jahre. Dies würde eine Verteilung der Auslieferung über 12 Releases bedeuten. Da ein unfertiger Lohnmeldestandard Kunden nichts nützt und lediglich zu Verwirrung bei den Patchnodes führen würde, wird ein gebündelter Launch vorgeschlagen. Dies führt zwar beim eventuellen Launch zu sehr großen Änderungen. Da diese jedoch ständig intern auf den neusten Stand integriert werden, kann eine Integration Hell vermieden werden.
+Da die bestehenden Lohnmeldestandards im System weiterhin bestehen bleiben, handelt es sich um eine Parallele Launchstrategie, sofern man die Lohnemeldungen mithilfe von verschiedenen Standards als getrennte austauschbare Programmteile betrachten kann.
+
+
 \chapter{Zusammenfassung}
+
+Zusammenfassend lässt sich sagen, dass die Probleme bei der Implementierung des neuen Lohnmeldestandards hauptsächlich auf der Langen Historie und den damit verbundenen altbackenen Prozessen bei der Entwicklung beruhen. 
+Einige der herausgearbeiteten Probleme lassen sich auch nicht lösen, da sie auf vertraglich garantierten Zusagen an Kunden beruhen.
+Durch die Einführung von festen Phasen nach dem Wasserfallmodell und einer verbesserten Teststrategie in Kombination mit der Einführung neuer, automatisierbarer Tools lässt sich jedoch eine Besserung der Effizienz und Bewertbarkeit des Fortschritts schaffen.
+Mit den vorgestellten Maßnahmen haben die Entwickler und Projektleitung die Möglichkeit, eine Verbesserung des Prozesses eigenständig weiter zu verbessern.

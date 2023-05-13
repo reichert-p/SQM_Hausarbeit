@@ -2,27 +2,32 @@
 
 
 
-Das Ziel dieser Hausarbeit besteht darin, anhand eines praktischen Fallbeispiels das Softwarequalitätsmanagement (SQM) zu analysieren und Optimierungen dafür zu entwerfen.
-Das Fallbeispiel ist dabei die Umsetzung eines neuen Lohnstandards und der damit einhergehenden Swissdec Zertifizierung.
-Die Ausarbeitung dient dabei dem Nachweis theoretischen und praktischen Wissens und insbesondere das Verständnis zur praktischen Anwendung des erlernten Wissens. 
+Das Hauptziel dieser Hausarbeit ist es, das Softwarequalitätsmanagement (SQM) anhand eines konkreten Fallbeispiels zu untersuchen und Verbesserungen dafür zu entwickeln.
+Das Fallbeispiel bezieht sich auf die Umsetzung eines neuen Lohnstandards und den Erhalt der damit verbundenen Swissdec-Zertifizierung.
+Durch diese Ausarbeitung soll der Erhalt theoretischen und praktischen Wissens nachgewiesen werden, insbesondere das Verständnis für die praktische Anwendung des erlernten Wissens. 
 
-Elektronische Lohnabrechnungen sind ein wichtiger Bestandteil moderner Enterprise Resource Planning (ERP) Software für den Bereich Human Resources (HR). So bietet auch meine Firma, die SAP, ERP Systeme mit Möglichkeiten zur elektronischen Lohnabrechnung.
-Lohnabrechnungen und Lohndaten sind wichtige Personenbezogene Daten, die in verschiedenen Ländern unterschiedlichen Standards und Regulierungen entsprechen. Zudem müssen sie vielen verschiedenen Stellen und Behörden gemeldet werden, wie Ämtern und Versicherungen. 
-Damit das einheitlich und rechtlich funktioniert, hat das Gemeinschaftsprojekt Swissdec für die Schweiz einen Standard entwickelt und vergibt Zertifizierungen für deren Einhaltung \cite{Swissdec.06.05.2023}. 
-Abbildung \ref{fig:dh-website} zeigt, dass viele wichtige Schweizer Institutionen über Swissdec Standards Kommunizieren. Darum ist es wichtig, dass ERP Systeme die aktuellen Swissdec Standards unterstützen.
-Die zum Projektzeipunkt aktulle Zertifizierungsbasis für Lohndatenverarbeitung ist ELM 5.0. Eine Datenspeicherung nach diesem Standard in das bestehende ERP System zu integrieren ist das Ziel des Pojektes dieser Arbeit. 
-Wichtige Schritte sind die Verbesserung der Codequalität, die Anpassung der XML Dokumente und die Implementierung aktuellster Verschlüsselungs- und Privacyverfahren.
- 
-Um diesen Prozess zu verbessern, sollen erlerntes Wissen und Techniken aus der Vorlesung verwendet werden, um die Abläufe zu analysieren, kritisch zu bewerten und Verbesserungsvorschläge zu formulieren.
- 
- Dazu wird zunächst die bestehende Software vorgestellt und %TODO beschreiben was das Vorgehen ist
+Elektronische Lohnabrechnungen sind ein integraler Bestandteil moderner Enterprise Resource Planning (ERP)-Software für den Bereich Human Resources (HR).
+Auch meine Firma bietet ERP-Systeme an, die die Möglichkeit zur elektronischen Lohnabrechnung bieten \footnote{In der Schweiz wird üblicherweise von Lohn statt Gehalt gesprochen}.
+In Lohnabrechnungen vorkommende Lohndaten sind wichtige personenbezogene Informationen, die je nach Land unterschiedlichen Standards und Vorschriften entsprechen müssen.
+Darüber hinaus müssen sie an verschiedene Stellen und Behörden gemeldet werden, wie beispielsweise Ämtern und Versicherungen. 
+
+Um eine einheitliche und rechtlich konforme Abwicklung zu gewährleisten, hat das gemeinschaftliche Projekt Swissdec einen Standard für die Schweiz entwickelt und vergibt Zertifizierungen zur Einhaltung dieses Standards  \cite{Swissdec.06.05.2023}. 
+Abbildung \ref{fig:dh-website} zeigt, dass viele bedeutende schweizerische Institutionen Swissdec Standards akzeptieren. Daher ist es wichtig, dass ERP-Systeme die aktuellen Swissdec Standards unterstützen.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.\textwidth]{Bilder/grafik_lohndaten_de.png} 
+	\includegraphics[width=200px]{Bilder/grafik_lohndaten_de.png} 
 	\caption{Die Abbildung zeigt die Stellen, die Swissdec standardisierte Lohndaten entgegennehmen \cite{Swissdec.06.05.2023}}
 	\label{fig:dh-website}
 \end{figure} 
+
+Bisher werden die Standards bis ELM 4.0 unterstützt.
+Das Ziel dieses Projekts besteht darin, die während des Projektzeitraums aktuellste Zertifizierung für die Verarbeitung von Lohndaten, ELM 5.0, in das bestehende ERP-System zu integrieren.
+Wesentliche Schritte dafür sind die Verbesserung der Qualität des existierenden Codes, die Anpassung der generierten XML-Struktur sowie die Implementierung der für die Zertifizierung benötigten Verschlüsselungs- und Datenschutzverfahren.
+ 
+
+
+
 
 
 
