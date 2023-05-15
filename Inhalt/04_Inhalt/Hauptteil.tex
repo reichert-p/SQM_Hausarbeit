@@ -18,6 +18,8 @@ Das Projektteam besteht aus zwei erfahrenen Entwicklern, die bereits seit über 
 
 Das Entwicklungsteam wird von zwei Personen unterstützt, die sich mit Fragen zur Lohndatenabrechnung, den rechtlichen Bestimmungen in der Schweiz und Rückfragen an Swissdec befassen. Ihr Verantwortungsbereich umfasst auch manuelle Ende-zu-Ende-Tests für durch Rückfragen abgeklärte Randfälle.
 
+Der Zeitliche Rahmen für die Umsetzung des Projektes liegt bei zwei Jahren.
+
 \section{Aktuelles Vorgehen, dessen Hintergründe und Auswirkungen}
 
 \subsection{Systemarchitektur}
@@ -36,65 +38,83 @@ Zudem nimmt der Transport in die verschiedenen Systeme Zeit in Anspruch. Darübe
 
 \subsection{Auslieferung}
 
-Es wird ein Software Update je Quartal ausgeliefert. Dazwischen können schnelle Fixes ausgeliefert werden. Kunden ist es selbst überlassen, ob sie diese einspielen wollen oder bis zum nächsten vierteljährlichen Release damit warten wollen.
+Es wird alle drei Monate ein Software-Update ausgeliefert. Dazwischen können auch schnellere Fehlerbehebungen ausgeliefert werden. Die Entscheidung, ob Kunden diese Updates installieren möchten oder lieber auf das nächste große Update warten möchten, liegt bei ihnen selbst.
 
-Dies entsteht aus der policy von SAP, die Auslieferung von Software nicht zentral zu managen sondern dies den einzelnen Kunden auf ihren On-Premise Systemen selbst zu überlassen.
+Dies entsteht aus der Politik von SAP, die Auslieferung von Software nicht zentral zu verwalten, sondern dies den einzelnen Kunden auf ihren On-Premise-Systemen zu überlassen.
 
-Dies führt dazu, dass Kunden auf verschiedensten Versionen operieren, welche im Fall von Fehlern auf Produktivsystemen oder Feature Requests aufwendig nachgestellt werden müssen, was viel Zeit frisst und oft zu zusätzlichen Problemen und schwerer nachmachbarkeit führt. 
-
+Dies führt dazu, dass Kunden auf verschiedenen Versionen operieren, was im Fall von kundenseitig entdeckten Fehlern aufwendig nachgestellt werden muss.
+ Dies kostet viel Zeit und führt oft zu zusätzlichen Problemen und Schwierigkeiten bei der Replikation der Zustände.
+ 
 \subsection{Software Tests}
 
-Es gibt von Swissdec definierte Testfälle, die für die Zertifizierung korrekt ausgeführt werden müssen. Diese werden nach der Implementierung der zugehörigen Features in die jeweiligen Testsysteme eingebunden und umgesetzt. Das korrekte Erzeugen der Lohnabrechnung der Testfälle über den vorgesehenen (manuellen) Prozess gilt dabei als bestandener Test.
+Es existieren spezifische Testfälle, die von Swissdec definiert wurden und für die Zertifizierung korrekt durchgeführt werden müssen. Sobald die entsprechenden Features implementiert wurden, werden diese Testfälle in die jeweiligen Testsysteme integriert und umgesetzt. Ein Test gilt als bestanden, wenn die Lohnabrechnung der Testfälle korrekt über den vorgesehenen manuellen Prozess erstellt werden kann.
 
-Dies kommt daher, dass die Tests für die Zertifizierung des ELM Standards sehr generell gehalten sind, da lediglich die korrekte Form der Daten, nicht aber deren effiziente Erstellung im Standard inbegriffen sind.
+Dieses Vorgehen ergibt sich aus dem allgemeinen Charakter der Tests für die Zertifizierung des ELM-Standards. Es wird lediglich die korrekte Formatierung der Daten geprüft, nicht jedoch deren Erstellung.
 
-Dies führt dazu, dass nicht übersichtlich ist, welche Tests auf welchem Stand gerade ausgeführt worden sind. Zusätzlich werden Seiteneffekte häufig erst später bemerkt, da keine automatisierten Tests bestehen und demnach nicht bei allen Änderungen der Aufwand getrieben wird alle (mitunter nichtmal implementierten) Tests auszuführen. 
+Die manuelle führt zu einer fehlenden Übersicht darüber, welche Tests gerade auf welchem Stand durchgeführt werden.
+Das Fehlen detaillierter Tests bedeutet, dass es nicht möglich ist, im Detail zu überprüfen, ob die Software wie geplant funktioniert.
+Darüber hinaus werden Nebeneffekte oft erst spät bemerkt, da keine automatisierten Tests vorhanden sind. Dies ist problematisch, da die Kosten von Fehlern umso höher sind, je später sie entdeckt werden.
 
 \subsection{Projektmanagement}
 
-Die Verteilung der Aufgaben erfolgt dabei über ein lebendes Dokument (welches von den Senior Developern gepflegt wird), indem erkannte Differenzen zum neuen Standard aufgelistet sind. Die Senior Developer teilen in einem täglichen Meeting Aufgaben zu und tauschen sich über den Stand der einzelnen Aufgaben aus.
+Die Zuweisung der Aufgaben erfolgt über ein dynamisches Dokument, indem ausstehende Aufgaben aufgelistet werden.
+Die Zuteilung der Aufgaben sowie Rückmeldungen zu Fortschritten findet in täglichen Meetings statt. Es gibt jedoch kein klar definiertes Verfahren dafür.
 
-Dies liegt an der hohen Erfahrungsdifferenz (20 Jahre gegenüber extra für die ELM zertifizierung ins Team geholt) und damit einhergehenden Hierarchie in der Abteilung.
+Dies liegt an der hohen Erfahrungsdifferenz und der damit automatisch verbundenen Hierarchie in der Abteilung.
 
-Dies ist problematisch, da in Kombination mit langen Releaseabständen nur selten eine Rückmeldung über die aktuelle Entwicklungsgeschwindigkeit erhalten wird. Zusätzlich ist die Einschätzung über die Restzeit des Projektes nicht sehr zuverlässig, da sehr wahrscheinlich ist, dass neue Abweichungen des neuen Standards gefunden werden, was den 'Backlog' an aufgaben erhöht.
+Dies stellt jedoch ein Problem dar, da aufgrund der langen Veröffentlichungsintervalle schwierig Rückschlüsse zum aktuellen Entwicklungsfortschritt gezogen werden können.
+Darüber hinaus ist die Einschätzung der verbleibenden Zeit im Projekt nicht sehr zuverlässig, da mit ähnlicher Geschwindigkeit neue Aufgaben gefunden werden, wie alte Aufgaben abgearbeitet werden.
 
 \subsection{Dokumentation und Versionskontrolle}
 
-Wenn eine Codeänderung vorgenommen wird, wird dies in einem Featurenode in einem entsprechenden System getrackt. Dabei wird ein Featurenode mit einer geöffnet und die geplanten Änderungen beschrieben. Innerhalb der geänderten Dateien wird am Dateianfang eine Referenz auf die Featurenode mit dem Bearbeiter hinterlegt, damit in Zukunft Nachfragen zu der Implementierungen direkt an den Dateiersteller gerichtet werden können und die Begründung in der Featurenode nachgesehen werden kann.
+Wenn eine neue Aufgabe begonnen wird, wird dafür eine Feature-Note erstellt, auf der alle vorgenommenen Codeänderungen gespeichert werden.
+Die geplante Funktionalität wird ebenfalls auf der Note beschrieben. Zusätzlich wird am Anfang der geänderten Dateien eine Referenz auf die Feature-Note und den Entwickler hinterlegt.
 
-Die Umsetzung über Featurenode liegt an der Erzeugung der Releasenodes aus den Featurenode. Dieses Konzept besteht seit den frühen Anfängen des ERP Systems, und damit länger als externe Projektmanagement Tools in anderen Teilen der Firma eingesetzt wurden. Ähnliches gilt für die Zuständigkeitsverwalltung über Annotationen in Dateianfängen, welche so lange bestehen dass sie teilweise in Deutsch oder Italienisch geschrieben wurden, obwohl die Implementierungssprache seit Jahrzehnten einheitlich auf Englisch ist.
+Die Einführung von Feature-Notes erfolgte, um Release-Dokumentationen aus den Feature-Notes zu generieren. Dieses Konzept besteht seit den frühen Anfängen des ERP-Systems und wurde bereits verwendet, bevor moderne Projektmanagement-Tools in anderen Teilen des Unternehmens eingesetzt wurden.
+ 
+Die Notizen am Anfang der Dateien haben ebenfalls ihren Ursprung in den Anfängen des Produkts. Sie wurden eingeführt, damit Autor und Zweck des Codes auch ohne moderne Versionskontrolle erkannt wurden.
+Diese Anmerkungen existieren seit langem und wurden teilweise sogar auf Deutsch oder Italienisch verfasst, obwohl die Implementierungssprache seit Jahrzehnten einheitlich englisch ist.
 
-Dies ist problematisch, da dieses Vorgehen bei häufig editierten Dateien zu einem unübersichtlichen Overhead am Dateianfang führt und die Verantwortlichen Mitarbeiternummern teilweise seit Jahrzehnten die Firma verlassen haben.
+Dies führt zu Problemen, da bei häufig bearbeiteten Dateien ein unübersichtlicher Overhead am Anfang der Datei entsteht und die Verantwortlichen, die durch Mitarbeiternummern repräsentiert werden, teilweise seit Jahrzehnten nicht mehr im Unternehmen tätig sind.
 
 \subsection{Zusammenfassung der Probleme}
 
-Der Kern aller Probleme liegt zudem in der Team Zusammenstellung. Aufgrund der Dynamik der Senior Entwicklern, welche lange Zeit als Zweierteam gearbeitet haben, besteht eine Abneigung gegenüber Projektmanagementtätigkeiten, da diese in der Vergangenheit nicht nötig waren. Zudem besteht keine klare Verantwortlichkeit, da die nominelle Projektleitung (Junior Entwickler) sich nicht an der tatsächlichen Autorität (welche bei den Senior Entwicklern liegt) deckt. Dies führt dazu, dass sich niemand verantwortlich fühlt, Änderungen in die Hand zu nehmen.
+Der Kern der Probleme liegt in der Änderung der Zusammenstellung des Teams.
+Die erfahrenen Entwicklern, haben lange Zeit ohne besondere Projektmanagementtätigkeiten als Zweierteam gearbeitet und sehen keinen Anlass bei dem erweiterten Team und größeren Projekt etwas grundlegend an ihren Arbeitsabläufen zu ändern.
 
-
+ Zudem besteht keine klare Verantwortlichkeit, wessen Aufgabe es wäre Änderungen in die Hand zu nehmen. %TODO ?
 
 \section{Grundlagentheorie für Optimierung}
 
-Um Optimierungen des für das Softwarequalitätsmanagement des Projekts der Vorlesung vorzuschlagen ist es wichtig, sich vorher mit den in der Vorlesung erlernten Grundlagen auseinanderzusetzen.
+Um Optimierungen für das Softwarequalitätsmanagement des Projekts vorzuschlagen, ist es wichtig, sich vorher mit den in der Vorlesung erlernten Grundlagen auseinander zu setzen.
 
-\subsection{Das magische Dreieck}
+\subsection{PDCA}
 
-Das Magische Dreieck des Projektmanagements bezieht sich auf die drei zentralen Faktoren, die bei der Planung und Umsetzung eines Projekts berücksichtigt werden müssen: Zeit, Kosten und Leistung.
+PDCA steht für den Plan-Do-Check-Act-Zyklus, der als ein strukturierter Ansatz zur kontinuierlichen Verbesserung von Prozessen, Produkten oder Dienstleistungen verwendet wird. Der PDCA Kreis besteht dabei aus vier Phasen
 
-Zeit bezieht sich auf den Zeitrahmen, innerhalb dessen das Projekt abgeschlossen werden soll. Dies umfasst die Festlegung von Meilensteinen und die Erstellung eines realistischen Zeitplans für die verschiedenen Phasen des Projekts.
+In der Planungsphase werden Ziele festgelegt und ein Aktionsplan erstellt. Es werden die zu erreichenden Ergebnisse, Ressourcenanforderungen und Maßnahmen definiert. 
+Bei der Umsetzung (Do) Phase wird der im Planungsprozess entwickelte Aktionsplan umgesetzt. Es werden Maßnahmen ergriffen, um die gewünschten Verbesserungen in der Praxis umzusetzen. 
+ In der Überprüfungsphase werden die durchgeführten Maßnahmen überprüft und die erzielten Ergebnisse analysiert. Es werden Daten gesammelt und Leistungskennzahlen verwendet, um den Fortschritt zu bewerten und festzustellen, ob die angestrebten Ziele erreicht wurden.
+Basierend auf den Ergebnissen der Überprüfung wird gehandelt (Act), also Anpassungen vorgenommen und Verbesserungsmaßnahmen identifiziert. Wenn die gewünschten Ziele erreicht wurden, werden die erfolgreich umgesetzten Maßnahmen standardisiert und in den laufenden Betrieb überführt. Falls notwendig, werden neue Pläne entwickelt und der PDCA-Zyklus beginnt erneut.
 
-Kosten bezieht sich auf das Budget, das für das Projekt zur Verfügung steht. Es ist wichtig, die Kosten sorgfältig zu planen und zu überwachen, um sicherzustellen, dass das Projekt innerhalb des Budgets bleibt und dass keine unvorhergesehenen Kosten entstehen.
+Der PDCA-Zyklus stellt sicher, dass kontinuierliche Verbesserungen in einem strukturierten und wiederholbaren Prozess stattfinden. Durch die wiederholte Anwendung des Zyklus können Projekte kontinuierlich lernen, ihre Prozesse optimieren und eine  Verpflichtung zur Verbesserung etablieren.
 
-Leistung bezieht sich auf die Qualität des Projektergebnisses und darauf, ob es den Anforderungen und Erwartungen entspricht. Die Leistung kann in Bezug auf die Funktionalität, Zuverlässigkeit, Benutzerfreundlichkeit, Effektivität und Effizienz des Ergebnisses bewertet werden.
+\subsection{Wasserfall Modell und Kanban Board}
 
-Diese drei Faktoren des Magischen Dreiecks des Projektmanagements sind miteinander verbunden und beeinflussen sich gegenseitig. Eine Änderung an einem Faktor kann Auswirkungen auf die anderen Faktoren haben, und es ist die Aufgabe des Projektmanagers, ein Gleichgewicht zwischen ihnen zu finden und sicherzustellen, dass das Projekt erfolgreich abgeschlossen wird.
+Das Wasserfallmodell ist ein sequenzieller und linearer Ansatz zur Softwareentwicklung. Es basiert auf der Idee, dass jeder Schritt im Entwicklungsprozess vollständig abgeschlossen sein muss, bevor der nächste Schritt beginnt. Der Name "Wasserfall" bezieht sich auf die Vorstellung, dass der Fortschritt von oben nach unten fließt, ähnlich einem Wasserfall.
 
-\subsection{Wasserfall Modell und V-Modell}
+Im Wasserfallmodell durchläuft ein Projekt typischerweise die folgenden Phasen in fester Reihenfolge: Anforderungsdefinition, Systementwurf, Implementierung, Überprüfung und Wartung. Jede Phase wird abgeschlossen, bevor die nächste beginnt, und es gibt wenig bis gar keine Möglichkeit für Rückwärtsbewegungen oder iterative Schleifen. Das bedeutet, dass jede Änderung oder Neuanforderung, die nach Abschluss einer Phase auftritt, erst in späteren Phasen berücksichtigt werden kann.
 
-Das Wasserfallmodell ist eine sequenzielle Projektmanagementmethode, bei der jede Phase des Projekts nacheinander abgeschlossen wird, bevor die nächste Phase beginnt. Dies bedeutet, dass der Fortschritt des Projekts von einer Phase zur nächsten linear ist und es wenig oder keine Möglichkeit gibt, Änderungen an früheren Phasen vorzunehmen, sobald sie abgeschlossen sind. Das Magische Dreieck des Projektmanagements ist daher besonders wichtig im Wasserfallmodell, da Zeit, Kosten und Leistung sorgfältig geplant und überwacht werden müssen, um sicherzustellen, dass das Projekt erfolgreich abgeschlossen wird.
+Das Wasserfallmodell eignet sich gut für Projekte mit klaren und stabilen Anforderungen, bei denen die Ergebnisse im Voraus genau definiert werden können, so etwa wenn ein Zertifikat erworben werden soll.
+Es bietet eine klare Struktur und ermöglicht eine detaillierte Planung. Allerdings kann es bei komplexen Projekten oder solchen mit sich ändernden Anforderungen unflexibel und risikoreich sein. Fehler oder Mängel, die in einer frühen Phase übersehen werden, können sich im späteren Verlauf des Projekts schwerwiegend auswirken.
 
-Das V-Modell ist eine Projektmanagementmethode, die auf dem Wasserfallmodell basiert, aber stärker auf Test- und Validierungsphasen fokussiert ist. Die V-Form des Modells verdeutlicht den Prozess, der bei der Erstellung von Produkten stattfindet, indem sie zeigt, wie die Anforderungen abgestimmt werden, wie das System im Entwicklungsprozess modelliert wird und wie Tests das Produkt überprüfen. Das Magische Dreieck des Projektmanagements ist auch im V-Modell von entscheidender Bedeutung, da es hilft sicherzustellen, dass die Anforderungen und Tests auf die Zeit- und Kostenvorgaben des Projekts abgestimmt sind.
+Ein Kanban Board ist ein visuelles Tool zur Verwaltung von Arbeitsabläufen und Aufgaben ist. Ein Kanban Board besteht aus Spalten, die den verschiedenen Status einer Aufgabe oder eines Arbeitsvorgangs repräsentieren, und Karten, die die einzelnen Aufgaben darstellen.
 
-In Bezug auf die Frage, wann sich welches Modell eignet, hängt dies von den spezifischen Anforderungen des Projekts ab. Das Wasserfallmodell ist ideal für Projekte, bei denen die Anforderungen klar definiert sind und Änderungen an diesen Anforderungen unwahrscheinlich sind. Das V-Modell eignet sich für Projekte, bei denen die Validierung von Anforderungen und Testphasen besonders wichtig ist. Es ist wichtig, die Vor- und Nachteile jedes Modells zu berücksichtigen und die richtige Methode für das spezifische Projekt auszuwählen.
+Das Kanban Board ermöglicht es einem Team, den Überblick über den Fortschritt der Arbeit zu behalten, Engpässe zu identifizieren und die Prioritäten zu setzen. Jede Aufgabe wird auf einer Karte dargestellt, die je nach Fortschritt durch die Spalten des Boards verschoben wird, von der Aufgabenplanung über die Bearbeitung bis zur Fertigstellung. Teammitglieder können den Status einer Aufgabe schnell erkennen und wissen, welche Aufgaben als nächstes erledigt werden müssen.
+
+Das Kanban Board fördert die Transparenz und Zusammenarbeit im Team. Es ermöglicht eine kontinuierliche Verbesserung, da Engpässe und Flaschenhälse sichtbar werden und Maßnahmen ergriffen werden können, um diese zu beseitigen. Das Board kann auch dazu dienen, den Arbeitsfluss zu optimieren und die Effizienz zu steigern.
+
+Im Vergleich zum Wasserfallmodell bietet das Kanban Board eine flexible und iterative Herangehensweise an die Arbeit. Es passt sich leicht an sich ändernde Anforderungen oder Prioritäten an und ermöglicht eine kontinuierliche Anpassung und Verbesserung des Arbeitsprozesses. Es wird oft in agilen Entwicklungsumgebungen eingesetzt, in denen eine hohe Flexibilität und schnelle Reaktion auf Veränderungen erforderlich sind.
 
 \section{Optimierungen und Marktspezifische Bewertung}
 
