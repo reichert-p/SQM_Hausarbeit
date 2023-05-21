@@ -118,45 +118,55 @@ Im Vergleich zum Wasserfallmodell bietet das Kanban Board eine flexible und iter
 
 \section{Optimierungen und Marktspezifische Bewertung}
 
-\subsection{Awareness für Sinnhaftigkeit von Planung schaffen}
+\subsection{Das Bewusstsein für die Notwendigkeit von SQM Maßnahmen stärken}
 
-Ein wichtiger grundlegender Schritt für den Erfolg aller weiteren Maßnahmen ist die Schaffung von Verständnis, warum ein gutes Projektmanagement, regelmäßige Rückmeldung und gute Abstimmung relevant für die Qualität der Software ist. 
-Insbesondere muss dabei die Wichtigkeit des PDCA-Protokolls (Plan-Do-Check-Act) vermittelt werden, das grundlegend für eine Verbesserung der Prozesse ist.
+Um sicherzustellen, dass alle weiteren Schritte erfolgreich sind, ist es wesentlich, ein Bewusstsein dafür zu schaffen, warum eine solide Projektleitung, regelmäßiges Feedback und eine effektive Koordination eine entscheidende Rolle für die Qualität der Software spielen. Besonders wichtig ist es, den Wert des PDCA-Protokolls (Plan-Do-Check-Act) zu verdeutlichen, da es essentiell für die Prozessverbesserung und damit die Softwarequalität ist.
 
 \subsection{Einführung moderner Versionierungs- und Projektmanagement Tools}
 
-Um PDCA besser umsetzen zu können wäre es empfehlenswert ein Vorgehen für den Projektverlauf zu definieren.
-Aufgrund der Projektbeschaffenheit würde es sich dafür anbieten, sich am Wasserfallmodell zu orientieren. Bei der Softwareentwicklung ist es zwar üblich agile Softwareentwicklung anzuwenden.
-Aufgrund der konkreten Anforderungen die erreicht werden müssen sowie der dafür notwendigen Dokumentation, die ohnehin erstellt werden muss, bietet sich für die Umsetzung der Anforderungen für ein Zertifikat jedoch allgemein die Struktur des Wasserfallmodells mehr.
+Der erste Schritt bei PDCA ist Plan. Entsprechend ist es empfehlenswert ein Vorgehen für den Projektverlauf zu definieren.
 
-Ein Vorteil bei dieser Umsetzung sind die bereits von Swissdec gegebenen klaren Anforderungen, die starr sind und sich nicht grundlegend ändern werden. Die entstandene Dokumentation muss für die Abnahme des Zertifikats zu Projektende ohnehin erstellt werden und der Zeitrahmen, bis zu dem das Projekt abgeschlossen werden soll kann gut geplant werden. Dadurch können Abweichungen der vorhandenen Ressourcen bzw. vom Zeitplan entsprechend PDCA frühzeitig erkannt und gegengesteuert werden.
-Ein weiterer Vorteil ist dass die Phasen der Anforderungen und Überprüfung durch die Rahmenbedingungen von Swissdec bereits gegeben sind.
-Da das Projekt auf eine existierende Codebasis aufbaut ist es Sinnvoll, in der Entwurfsphase sich mit der bestehenden Architektur und nötigen Anpassungen dafür auseinanderzusetzen
+Angesichts der Projekteigenschaften bietet es sich an, sich beim Zertifikatserwerb an der Struktur des Wasserfallmodells zu orientieren, obwohl in der Softwareentwicklung normalerweise agile Methoden verwendet werden.
+Dies liegt daran, dass die konkreten Anforderungen innerhalb eines festgelegten Zeitraums erfüllt werden müssen und eine umfassende Dokumentation erforderlich ist, die ohnehin erstellt werden muss.
+In diesem Kontext bietet das Wasserfallmodell eine geeignetere Struktur für die Umsetzung der Anforderungen.
 
-Eine weitere Empfehlung ist der Umstieg auf neue Technologien, nicht zuletzt um die Planung im Wasserfallmodell sinnvoll umsetzen zu können und die Dokumentation zu unterstützen.
+Ein Vorteil dieser Umsetzung besteht darin, dass klare Anforderungen bereits von Swissdec festgelegt wurden und sich voraussichtlich nicht grundlegend ändern werden. Die Dokumentation, die ohnehin für die Abnahme des Zertifikats am Ende des Projekts erstellt werden muss, kann gut geplant werden. Dadurch können Abweichungen bei den verfügbaren Ressourcen und dem Zeitplan frühzeitig erkannt und durch den PDCA-Zyklus entsprechend gegengesteuert werden.
+
+Ein weiterer Vorteil ist, dass neben der Anforderungsanalyse auch die Überprüfung der Ergebnisse bereits durch die Rahmenbedingungen von Swissdec gegeben sind.
+
+Da das Projekt auf einer bestehenden Codebasis aufbaut, ist es sinnvoll, sich in der Entwurfsphase intensiv mit der vorhandenen Architektur und den erforderlichen Anpassungen auseinanderzusetzen, um Synergien und Probleme zwischen dem alten und neuen Code effektiv nutzen zu können.
+
+Es wird empfohlen, auf neue, modernere Technologien umzusteigen, unter anderem, um die sinnvolle Umsetzung der Planung im Wasserfallmodell zu ermöglichen und die Dokumentation zu erleichtern.
 
 
 \subsection{Testgetriebene Entwicklung mit automatisierten Tests}
 
-Ein weiteres Gebiet für Optimierungen ist die Überarbeitung des Testbetriebs.
-Ein wichtiger Schritt zur Erhöhung der Codequalität wäre die Einführung von Unit Tests, die auf kleinster Ebene lokal und schnell die Funktionalität des Codes garantieren.
-Zusätzlich wäre eine Adaption der Testgetriebenen Entwicklung für die bereits von Swissdec gegebenen Acceptance Tests Sinnvoll. Dieses Vorgehen würde die guten Qualitätsmetriken ausnutzen. Da diese Tests fest gegeben und notwendig für eine erfolgreiche Zertifizierung sind, würden dieses Vorgehen nicht für einen höheren Aufwand oder mehr Testwartung führen.
-Da das Projekt im Kontext eines umfassenden Lohndatensystems stattfindet ist die Umsetzung regelmäßiger Smoke- und Tests sehr sinnvoll, um zu prüfe ob andere Systemkomponente von der Implementierung beeinflusst werden.
+Eine Möglichkeit zur Optimierung besteht darin, den Testbetrieb zu überarbeiten. Ein wichtiger Schritt zur Verbesserung der Codequalität wäre die Implementierung von Unit Tests, die auf kleinstem Niveau eine schnelle Überprüfung der Codefunktionalität ermöglichen.
 
-Eine weitere Sinnvolle Maßnahme zur Sicherung der Qualität ist die automatisierte der Tests neuen Änderungen. Dies garantiert eine regelmäßige Ausführung aller Tests und damit eine Frühzeitige Erkennung von Problemen.
+Des Weiteren wäre es sinnvoll, die testgetriebene Entwicklung auf die bereits vorhandenen Acceptance Tests von Swissdec anzuwenden. Dieser Ansatz würde die bestehenden Qualitätsmetriken nutzen. Da diese Tests festgelegt und für eine erfolgreiche Zertifizierung erforderlich sind, würde dies nicht zu einem höheren Aufwand oder zusätzlicher Testwartung führen.
 
-Dies wäre Sinnvoll umsetzbar im Rahmen einer Continuous Integration. Continuous Delivery in die anderen Entwicklungs- und Testsysteme wäre auch eine Sinnvolle Maßnahme, da dies Zeit spart, die Entwickler für den halbautomatisierten Transport der Änderungen benötigen würden.
-Es wäre Sinnvoll die Pipeline um automatische Tests in den anderen Systemen zu erweitern, damit Entwickler direkt informiert werden wenn Codeänderungen für die anderen Systeme nötig sind.
-Continuous Deployment des Produktivcodes an produktive Systeme von Kunden ist in diesem Zusammenhang nicht Sinnvoll, da hier die Verantworktun auf Seiten der Kunden liegt und eine zu filigrane Aufteilung der Versionierung den laufenden Betrieb stören könnte.
+Da das Projekt im Zusammenhang mit einem umfangreichen Lohndatensystem steht, ist es ratsam, regelmäßige Smoke- und Integrationstests durchzuführen, um zu überprüfen, ob andere Systemkomponenten von der Implementierung beeinflusst werden.
 
-Da die Entwicklung des neuen Lohnmeldestandards auf den Selben Systemen wie die aktuelle Lohnmeldesoftware stattfinde, muss überlegt werden, wie die Auslieferung stattfindet.
-Der Angesetzte Zeitrahmen für den neuen Lohnmeldestandard ist etwa 3 Jahre. Dies würde eine Verteilung der Auslieferung über 12 Releases bedeuten. Da ein unfertiger Lohnmeldestandard Kunden nichts nützt und lediglich zu Verwirrung bei den Patchnodes führen würde, wird ein gebündelter Launch vorgeschlagen. Dies führt zwar beim eventuellen Launch zu sehr großen Änderungen. Da diese jedoch ständig intern auf den neusten Stand integriert werden, kann eine Integration Hell vermieden werden.
-Da die bestehenden Lohnmeldestandards im System weiterhin bestehen bleiben, handelt es sich um eine Parallele Launchstrategie, sofern man die Lohnemeldungen mithilfe von verschiedenen Standards als getrennte austauschbare Programmteile betrachten kann.
+Eine weitere empfehlenswerte Maßnahme zur Sicherstellung der Qualität besteht darin, automatisierte Tests bei neuen Änderungen einzusetzen. Dadurch wird gewährleistet, dass alle Tests regelmäßig durchgeführt werden und Probleme frühzeitig erkannt werden können.
 
+\subsection{Continuous Integration}
+
+Eine effektive Umsetzung dieser Tests könnte im Rahmen einer Continuous Integration realisiert werden. Durch die Implementierung von Continuous Delivery in andere Entwicklungs- und Testsysteme ließe sich ebenfalls Zeit sparen, da Entwickler nicht mehr halbautomatisch Änderungen zwischen den Systemen transportieren müssten.
+
+Es wäre ratsam, die Pipeline um automatisierte Tests in den anderen Systemen zu erweitern, um Entwickler direkt über Codeänderungen zu informieren, die für diese Systeme erforderlich sind \footnote{Aufgrund der verschiedenen ABAP Versionen}.
+
+Jedoch ist es im Zusammenhang mit der Übertragung des Produktivcodes an Kundenproduktionssysteme nicht sinnvoll, Continuous Deployment einzusetzen, da hier liegt die Kontrolle bei den Kunden liegt.
+
+Angesichts der Tatsache, dass die Entwicklung des neuen Lohnmeldestandards auf den gleichen Systemen wie die aktuelle Lohnmeldesoftware stattfindet, muss darüber nachgedacht werden, wie die Auslieferung erfolgen soll.
+
+Der vorgesehene Zeitrahmen für die Entwicklung des neuen Lohnmeldestandards beträgt etwa 3 Jahre. Dies würde bedeuten, dass die Auslieferung in 12 Releases aufgeteilt wird. Da ein unvollständiger Lohnmeldestandard für Kunden nutzlos ist und nur zu Verwirrung bei den Patchnotes führen würde, wird ein gebündelter Launch vorgeschlagen. Dies bedeutet, dass beim tatsächlichen Launch erhebliche Änderungen vorgenommen werden müssen. Da diese Änderungen jedoch kontinuierlich intern in den neuesten Stand integriert werden, kann ein sogenannter "Integration Hell" vermieden werden.
+
+Da die bestehenden Lohnmeldestandards im System weiterhin vorhanden sind, handelt es sich um eine parallele Launchstrategie, sofern Lohnmeldungen als separate austauschbare Programmteile betrachtet werden können.
 
 \chapter{Zusammenfassung}
 
-Zusammenfassend lässt sich sagen, dass die Probleme bei der Implementierung des neuen Lohnmeldestandards hauptsächlich auf der Langen Historie und den damit verbundenen altbackenen Prozessen bei der Entwicklung beruhen. 
-Einige der herausgearbeiteten Probleme lassen sich auch nicht lösen, da sie auf vertraglich garantierten Zusagen an Kunden beruhen.
-Durch die Einführung von festen Phasen nach dem Wasserfallmodell und einer verbesserten Teststrategie in Kombination mit der Einführung neuer, automatisierbarer Tools lässt sich jedoch eine Besserung der Effizienz und Bewertbarkeit des Fortschritts schaffen.
-Mit den vorgestellten Maßnahmen haben die Entwickler und Projektleitung die Möglichkeit, eine Verbesserung des Prozesses eigenständig weiter zu verbessern.
+Insgesamt lässt sich feststellen, dass die Implementierung des neuen Lohnmeldestandards hauptsächlich durch die langjährige Historie und die damit verbundenen veralteten Entwicklungsprozesse erschwert wird. Einige der identifizierten Probleme sind unlösbar, da sie auf vertraglichen Verpflichtungen gegenüber Kunden beruhen.
+
+Dennoch kann eine Verbesserung der Effizienz, Fortschrittsbewertung und der Entwicklungs- und Softwarequalität erreicht werden, indem feste Phasen gemäß dem Wasserfallmodell eingeführt werden und eine verbesserte Testgetriebene Entwicklung mit besserer Testabdeckung und interner Auslieferung in Kombination mit neuen, automatisierbaren Tools verwendet wird.
+
+Die vorgestellten Maßnahmen bieten Entwicklern und Projektmanagern die Möglichkeit, den Prozess eigenständig weiter zu verbessern und eine positive Veränderung herbeizuführen.
